@@ -1,5 +1,11 @@
 # InjectorRepro
 
+This is a repro for "effects v4 not compatible with ngUpgrade"
+https://github.com/ngrx/platform/issues/316
+
+See the following commit for changes:
+  https://github.com/pobrienms/injectorRepro/commit/dba0dc613850b89a4271c118178a1a62b478130e
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
 
 ## Development server
