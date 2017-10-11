@@ -34,11 +34,11 @@ export class SomeActionFailed implements Action {
 
 @Injectable()
 export class MyEffects {
+    private readonly $http: ng.IHttpService;
 
     @Effect()
     someEffect$ = this.action$
         .ofType<SomeAction>('any')
-        .startWith(new SomeAction('!'))
         .map(toPayload)
         .switchMap(payload =>
             Observable.fromPromise(this.$http.get<string>('/somepath/' + payload))
@@ -46,10 +46,7 @@ export class MyEffects {
                 .catch(result => of(new SomeActionFailed(result)))
         );
 
-    get $http(): ng.IHttpService  {
-      return this.injector.get('$http');
-    }
-
-    constructor(private action$: Actions, private injector: Injector) {
+    constructor(private action$: Actions, injector: Injector) {
+        this.$http = injector.get('$http');
     }
 }

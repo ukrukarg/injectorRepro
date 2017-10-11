@@ -58,7 +58,5 @@ export class AppModule {
     this.upgrade.bootstrap(document.getElementById('appPlaceHolder'),
       ['myApp'],
       { strictDi: true });
-
-    this.store.dispatch({ type: 'any' });
   }
  }
